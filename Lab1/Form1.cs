@@ -5,6 +5,10 @@ namespace Lab1
         public byte red = 0;
         public byte green = 0;
         public byte blue = 0;
+
+        public bool line = true;
+        public bool rect = false;
+        public bool ellip = false;
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +27,23 @@ namespace Lab1
             oldy = e.Y;
         }
 
+        private void drawColoredShape(Graphics g, Pen pen, int oldx, int oldy, int newx, int newy)
+        {
+            if (line)
+            {
+                g.DrawLine(pen, oldx, oldy, newx, newy);
+            }
+            else if (rect)
+            {
+                Rectangle rectangle = new Rectangle(oldx, oldy, newx, newy);
+                g.DrawRectangle(pen, rectangle);
+            }
+            else if (ellip)
+            {
+                g.DrawEllipse(pen, oldx, oldy, newx, newy);
+            }
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             newx = e.X;
@@ -31,8 +52,7 @@ namespace Lab1
             Graphics g = panel1.CreateGraphics();
 
             Pen pen = new Pen(GetColor(), 3);
-
-            g.DrawLine(pen, oldx, oldy, newx, newy);
+            drawColoredShape(g, pen, oldx, oldy, newx, newy);
         }
 
         public Color GetColor()
@@ -42,17 +62,23 @@ namespace Lab1
         }
         private void lineButton_Click(object sender, EventArgs e)
         {
-
+            line = true;
+            rect = false;
+            ellip = false;
         }
 
         private void rectangleButton_Click(object sender, EventArgs e)
         {
-
+            line = false;
+            rect = true;
+            ellip = false;
         }
 
         private void ellipseButton_Click(object sender, EventArgs e)
         {
-
+            line = false;
+            rect = false;
+            ellip = true;
         }
 
         private void red_Scroll(object sender, EventArgs e)

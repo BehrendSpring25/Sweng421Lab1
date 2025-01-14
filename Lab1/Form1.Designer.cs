@@ -42,10 +42,10 @@
             // 
             // rectangleButton
             // 
-            rectangleButton.Location = new Point(155, 26);
+            rectangleButton.Location = new Point(137, 16);
             rectangleButton.Margin = new Padding(2);
             rectangleButton.Name = "rectangleButton";
-            rectangleButton.Size = new Size(90, 27);
+            rectangleButton.Size = new Size(108, 47);
             rectangleButton.TabIndex = 1;
             rectangleButton.Text = "Rectangle";
             rectangleButton.UseVisualStyleBackColor = true;
@@ -65,7 +65,8 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = SystemColors.ButtonHighlight;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Location = new Point(10, 77);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
@@ -77,10 +78,10 @@
             // 
             // lineButton
             // 
-            lineButton.Location = new Point(22, 26);
+            lineButton.Location = new Point(22, 16);
             lineButton.Margin = new Padding(2);
             lineButton.Name = "lineButton";
-            lineButton.Size = new Size(90, 27);
+            lineButton.Size = new Size(100, 47);
             lineButton.TabIndex = 4;
             lineButton.Text = "Line";
             lineButton.UseVisualStyleBackColor = true;
@@ -111,10 +112,10 @@
             // ellipseButton
             // 
             ellipseButton.AutoEllipsis = true;
-            ellipseButton.Location = new Point(291, 26);
+            ellipseButton.Location = new Point(266, 16);
             ellipseButton.Margin = new Padding(2);
             ellipseButton.Name = "ellipseButton";
-            ellipseButton.Size = new Size(90, 27);
+            ellipseButton.Size = new Size(113, 47);
             ellipseButton.TabIndex = 7;
             ellipseButton.Text = "Ellipse";
             ellipseButton.UseVisualStyleBackColor = true;

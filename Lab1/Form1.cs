@@ -35,12 +35,12 @@ namespace Lab1
             }
             else if (rect)
             {
-                Rectangle rectangle = new Rectangle(oldx, oldy, newx, newy);
+                Rectangle rectangle = new Rectangle(oldx, oldy, newx - oldx, newy - oldy);
                 g.DrawRectangle(pen, rectangle);
             }
             else if (ellip)
             {
-                g.DrawEllipse(pen, oldx, oldy, newx, newy);
+                g.DrawEllipse(pen, oldx, oldy, newx - oldx, newy - oldy);
             }
         }
 

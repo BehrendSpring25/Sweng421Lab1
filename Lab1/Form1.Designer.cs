@@ -28,90 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
-            trackBar1 = new TrackBar();
+            rectangleButton = new Button();
+            greenBar = new TrackBar();
             panel1 = new Panel();
-            button1 = new Button();
-            trackBar2 = new TrackBar();
-            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
+            lineButton = new Button();
+            blueBar = new TrackBar();
+            redBar = new TrackBar();
+            ellipseButton = new Button();
+            ((System.ComponentModel.ISupportInitialize)greenBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)blueBar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)redBar).BeginInit();
             SuspendLayout();
             // 
-            // button2
+            // rectangleButton
             // 
-            button2.Location = new Point(131, 26);
-            button2.Margin = new Padding(2, 2, 2, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 27);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            rectangleButton.Location = new Point(155, 26);
+            rectangleButton.Margin = new Padding(2);
+            rectangleButton.Name = "rectangleButton";
+            rectangleButton.Size = new Size(90, 27);
+            rectangleButton.TabIndex = 1;
+            rectangleButton.Text = "Rectangle";
+            rectangleButton.UseVisualStyleBackColor = true;
+            rectangleButton.Click += rectangleButton_Click;
             // 
-            // trackBar1
+            // greenBar
             // 
-            trackBar1.BackColor = Color.Red;
-            trackBar1.Location = new Point(225, 17);
-            trackBar1.Margin = new Padding(2, 2, 2, 2);
-            trackBar1.Name = "trackBar1";
-            trackBar1.Size = new Size(125, 56);
-            trackBar1.TabIndex = 2;
+            greenBar.BackColor = Color.Green;
+            greenBar.Location = new Point(604, 17);
+            greenBar.Margin = new Padding(2);
+            greenBar.Maximum = 255;
+            greenBar.Name = "greenBar";
+            greenBar.Size = new Size(125, 56);
+            greenBar.TabIndex = 2;
+            greenBar.Scroll += green_Scroll;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ActiveCaption;
             panel1.Location = new Point(10, 77);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(948, 387);
             panel1.TabIndex = 3;
+            panel1.Paint += panel1_Paint;
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseUp += panel1_MouseUp;
             // 
-            // button1
+            // lineButton
             // 
-            button1.Location = new Point(22, 26);
-            button1.Margin = new Padding(2, 2, 2, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 27);
-            button1.TabIndex = 4;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            lineButton.Location = new Point(22, 26);
+            lineButton.Margin = new Padding(2);
+            lineButton.Name = "lineButton";
+            lineButton.Size = new Size(90, 27);
+            lineButton.TabIndex = 4;
+            lineButton.Text = "Line";
+            lineButton.UseVisualStyleBackColor = true;
+            lineButton.Click += lineButton_Click;
             // 
-            // trackBar2
+            // blueBar
             // 
-            trackBar2.BackColor = Color.Red;
-            trackBar2.Location = new Point(354, 17);
-            trackBar2.Margin = new Padding(2);
-            trackBar2.Name = "trackBar2";
-            trackBar2.Size = new Size(125, 56);
-            trackBar2.TabIndex = 5;
+            blueBar.BackColor = Color.Blue;
+            blueBar.Location = new Point(778, 17);
+            blueBar.Margin = new Padding(2);
+            blueBar.Maximum = 255;
+            blueBar.Name = "blueBar";
+            blueBar.Size = new Size(125, 56);
+            blueBar.TabIndex = 5;
+            blueBar.Scroll += blue_Scroll;
+            // 
+            // redBar
+            // 
+            redBar.BackColor = Color.Red;
+            redBar.Location = new Point(434, 17);
+            redBar.Margin = new Padding(2);
+            redBar.Maximum = 255;
+            redBar.Name = "redBar";
+            redBar.Size = new Size(125, 56);
+            redBar.TabIndex = 6;
+            redBar.Scroll += red_Scroll;
+            // 
+            // ellipseButton
+            // 
+            ellipseButton.AutoEllipsis = true;
+            ellipseButton.Location = new Point(291, 26);
+            ellipseButton.Margin = new Padding(2);
+            ellipseButton.Name = "ellipseButton";
+            ellipseButton.Size = new Size(90, 27);
+            ellipseButton.TabIndex = 7;
+            ellipseButton.Text = "Ellipse";
+            ellipseButton.UseVisualStyleBackColor = true;
+            ellipseButton.Click += ellipseButton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(967, 474);
-            Controls.Add(trackBar2);
-            Controls.Add(button1);
+            Controls.Add(ellipseButton);
+            Controls.Add(redBar);
+            Controls.Add(blueBar);
+            Controls.Add(lineButton);
             Controls.Add(panel1);
-            Controls.Add(trackBar1);
-            Controls.Add(button2);
-            Margin = new Padding(2, 2, 2, 2);
+            Controls.Add(greenBar);
+            Controls.Add(rectangleButton);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)trackBar2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)greenBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)blueBar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)redBar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button button2;
-        private TrackBar trackBar1;
+        private Button rectangleButton;
+        private TrackBar greenBar;
         private Panel panel1;
-        private Button button1;
-        private TrackBar trackBar2;
+        private Button lineButton;
+        private TrackBar blueBar;
+        private TrackBar redBar;
+        private Button ellipseButton;
     }
 }

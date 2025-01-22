@@ -1,3 +1,5 @@
+using System.Drawing.Drawing2D;
+
 namespace Lab1
 {
     public partial class Form1 : Form
@@ -9,9 +11,28 @@ namespace Lab1
         public bool line = true;
         public bool rect = false;
         public bool ellip = false;
+
+        private bool isDrawing = false;
+        private int previewNewX, previewNewY;
+
+        private Bitmap offScreenBitmap;
+        private Graphics offScreenGraphics;
+
         public Form1()
         {
             InitializeComponent();
+            InitializeDoubleBuffering();
+        }
+
+        private void InitializeDoubleBuffering()
+        {
+            int screenWidth = Screen.PrimaryScreen.Bounds.Width;
+            int screenHeight = Screen.PrimaryScreen.Bounds.Height;
+
+            offScreenBitmap = new Bitmap(screenWidth, screenHeight);
+            Console.WriteLine("Screen Width: " + screenWidth + " Screen Height: " + screenHeight);
+            offScreenGraphics = Graphics.FromImage(offScreenBitmap);
+            offScreenGraphics.Clear(Color.White);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,7 +46,9 @@ namespace Lab1
         {
             oldx = e.X;
             oldy = e.Y;
+            isDrawing = true;
         }
+
 
         private void drawColoredShape(Graphics g, Pen pen, int oldx, int oldy, int newx, int newy)
         {
@@ -35,31 +58,34 @@ namespace Lab1
             }
             else if (rect)
             {
-                Rectangle rectangle = new Rectangle(oldx, oldy, newx - oldx, newy - oldy);
+                Rectangle rectangle = new Rectangle(Math.Min(oldx, newx), Math.Min(oldy, newy), Math.Abs(newx - oldx), Math.Abs(newy - oldy));
                 g.DrawRectangle(pen, rectangle);
             }
             else if (ellip)
             {
-                g.DrawEllipse(pen, oldx, oldy, newx - oldx, newy - oldy);
+                Rectangle ellipse = new Rectangle(Math.Min(oldx, newx), Math.Min(oldy, newy), Math.Abs(newx - oldx), Math.Abs(newy - oldy));
+                g.DrawEllipse(pen, ellipse);
             }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
+            isDrawing = false;
             newx = e.X;
             newy = e.Y;
 
-            Graphics g = panel1.CreateGraphics();
-
             Pen pen = new Pen(GetColor(), 3);
-            drawColoredShape(g, pen, oldx, oldy, newx, newy);
+
+            drawColoredShape(offScreenGraphics, pen, oldx, oldy, newx, newy);
+
+            panel1.Invalidate();
         }
 
         public Color GetColor()
         {
-            Color cc = Color.FromArgb(red, green, blue);
-            return cc;
+            return Color.FromArgb(red, green, blue);
         }
+
         private void lineButton_Click(object sender, EventArgs e)
         {
             line = true;
@@ -99,6 +125,25 @@ namespace Lab1
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+            e.Graphics.DrawImage(offScreenBitmap, 0, 0);
+
+            if (isDrawing)
+            {
+                Pen preview = new Pen(GetColor(), 3) { DashStyle = DashStyle.Dash };
+                drawColoredShape(e.Graphics, preview, oldx, oldy, previewNewX, previewNewY);
+            }
+        }
+
+        private void panel1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (isDrawing)
+            {
+                previewNewX = e.X;
+                previewNewY = e.Y;
+
+                panel1.Invalidate();
+            }
         }
     }
+
 }

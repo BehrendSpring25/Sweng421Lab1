@@ -42,10 +42,10 @@
             // 
             // rectangleButton
             // 
-            rectangleButton.Location = new Point(137, 16);
+            rectangleButton.Location = new Point(171, 20);
             rectangleButton.Margin = new Padding(2);
             rectangleButton.Name = "rectangleButton";
-            rectangleButton.Size = new Size(108, 47);
+            rectangleButton.Size = new Size(135, 59);
             rectangleButton.TabIndex = 1;
             rectangleButton.Text = "Rectangle";
             rectangleButton.UseVisualStyleBackColor = true;
@@ -54,11 +54,11 @@
             // greenBar
             // 
             greenBar.BackColor = Color.Green;
-            greenBar.Location = new Point(604, 17);
+            greenBar.Location = new Point(755, 21);
             greenBar.Margin = new Padding(2);
             greenBar.Maximum = 255;
             greenBar.Name = "greenBar";
-            greenBar.Size = new Size(125, 56);
+            greenBar.Size = new Size(156, 69);
             greenBar.TabIndex = 2;
             greenBar.Scroll += green_Scroll;
             // 
@@ -67,21 +67,22 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.ButtonHighlight;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Location = new Point(10, 77);
+            panel1.Location = new Point(12, 96);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(948, 387);
+            panel1.Size = new Size(1184, 483);
             panel1.TabIndex = 3;
             panel1.Paint += panel1_Paint;
             panel1.MouseDown += panel1_MouseDown;
+            panel1.MouseMove += panel1_MouseMove_1;
             panel1.MouseUp += panel1_MouseUp;
             // 
             // lineButton
             // 
-            lineButton.Location = new Point(22, 16);
+            lineButton.Location = new Point(28, 20);
             lineButton.Margin = new Padding(2);
             lineButton.Name = "lineButton";
-            lineButton.Size = new Size(100, 47);
+            lineButton.Size = new Size(125, 59);
             lineButton.TabIndex = 4;
             lineButton.Text = "Line";
             lineButton.UseVisualStyleBackColor = true;
@@ -90,32 +91,32 @@
             // blueBar
             // 
             blueBar.BackColor = Color.Blue;
-            blueBar.Location = new Point(778, 17);
+            blueBar.Location = new Point(972, 21);
             blueBar.Margin = new Padding(2);
             blueBar.Maximum = 255;
             blueBar.Name = "blueBar";
-            blueBar.Size = new Size(125, 56);
+            blueBar.Size = new Size(156, 69);
             blueBar.TabIndex = 5;
             blueBar.Scroll += blue_Scroll;
             // 
             // redBar
             // 
             redBar.BackColor = Color.Red;
-            redBar.Location = new Point(434, 17);
+            redBar.Location = new Point(542, 21);
             redBar.Margin = new Padding(2);
             redBar.Maximum = 255;
             redBar.Name = "redBar";
-            redBar.Size = new Size(125, 56);
+            redBar.Size = new Size(156, 69);
             redBar.TabIndex = 6;
             redBar.Scroll += red_Scroll;
             // 
             // ellipseButton
             // 
             ellipseButton.AutoEllipsis = true;
-            ellipseButton.Location = new Point(266, 16);
+            ellipseButton.Location = new Point(332, 20);
             ellipseButton.Margin = new Padding(2);
             ellipseButton.Name = "ellipseButton";
-            ellipseButton.Size = new Size(113, 47);
+            ellipseButton.Size = new Size(141, 59);
             ellipseButton.TabIndex = 7;
             ellipseButton.Text = "Ellipse";
             ellipseButton.UseVisualStyleBackColor = true;
@@ -123,9 +124,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(967, 474);
+            ClientSize = new Size(1209, 592);
             Controls.Add(ellipseButton);
             Controls.Add(redBar);
             Controls.Add(blueBar);
